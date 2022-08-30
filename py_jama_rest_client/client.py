@@ -162,7 +162,7 @@ class JamaClient:
         filter_results = self.__get_all(resource_path, params=params, allowed_results_per_page=allowed_results_per_page)
         return filter_results
 
-    def get_items(self, project_id, allowed_results_per_page=__allowed_results_per_page):
+    def get_items(self, project_id, root_only='false', allowed_results_per_page=__allowed_results_per_page):
         """
         This method will return all items in the specified project.
         Args:
@@ -173,7 +173,7 @@ class JamaClient:
 
         """
         resource_path = 'items'
-        params = {'project': project_id}
+        params = {'project': project_id, 'rootOnly': root_only}
         item_data = self.__get_all(resource_path, params=params, allowed_results_per_page=allowed_results_per_page)
         return item_data
 
